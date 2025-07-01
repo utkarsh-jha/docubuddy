@@ -1,0 +1,12 @@
+
+diff --git a/src/perform_analysis.py b/src/perform_analysis.py
+index e69de29..7f5c4c3 100644
+--- a/src/perform_analysis.py
++++ b/src/perform_analysis.py
+@@ -2,0 +3,4 @@
++
++def add(x: float, y: float) -> float:
++    """Return the sum of two numbers."""
++    return x + y
+```
+    

@@ -1,2 +1,8 @@
-### Create Conda environment
-conda create -n docubuddy
+### Environment Setup 
+- Download and install anaconda
+- Create Conda Environment
+    ```bash 
+    conda create -n docubuddy
+    ```
+- 
+
