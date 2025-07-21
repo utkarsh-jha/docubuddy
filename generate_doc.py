@@ -127,7 +127,7 @@ def infer_docs_from_llm(diff_map):
             2. For REMOVED code (lines starting with -): If any related docstrings or comments exist, remove them accordingly.
             3. Do NOT change or add executable code or logic—only modify documentation (docstrings, comments, type hints).
             4. Follow PEP 257 for docstring format and indentation.
-            5. Maintain valid Python syntax at all times.
+            5. Detect language from file extension, and maintain valid syntax at all times.
             6. The output must be a valid unified diff (patch file) that can be applied using `git apply` or `patch`.
             7. If no documentation changes are needed, return an empty diff.
             8. Use the complete file content as context to understand the code structure and existing documentation patterns.
