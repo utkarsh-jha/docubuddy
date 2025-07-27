@@ -50,7 +50,7 @@ def infer_docs_from_llm(file_name, file_content, diff_str):
         1. For ADDED code (lines starting with +): If it lacks documentation, insert appropriate docstrings, comments, or type hints.
         2. For REMOVED code (lines starting with -): If any related docstrings or comments exist, remove them accordingly.
         3. Do NOT change or add executable code or logic, only add or modify documentations as a comment (docstrings, comments, type hints).
-        4. Follow PEP 257 for docstring format and indentation and language specific documentation standards.
+        4. Follow the docstring format and indentation and language specific documentation standards.
         5. Maintain valid File syntax at all times.
         6. The output must be the same file with updated documentation and virtually no code changes, keep all the existing files verbatim.
         7. Use the complete file content as context to understand the code structure and existing documentation patterns.

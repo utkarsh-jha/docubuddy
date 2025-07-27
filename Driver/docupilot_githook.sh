@@ -4,7 +4,7 @@ echo "post-commit hook started"
 sleep 2 # Slight delay for commit operations to complete
 
 # Define your API endpoint URL here
-API_ENDPOINT="http://localhost:5000/docufy"
+API_ENDPOINT=""
 DOCUBUDDY_URL="$API_ENDPOINT"
 
 # Check if API endpoint is set
