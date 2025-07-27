@@ -13,17 +13,26 @@ def get_info():
     """
     
     patch: str = '''
-        diff --git a/src/perform_analysis.py b/src/perform_analysis.py
-        index e69de29..7f5c4c3 100644
-        --- a/src/perform_analysis.py
-        +++ b/src/perform_analysis.py
-        @@ -2,0 +3,4 @@
-        +
-        +def add(x: float, y: float) -> float:
-        +    """Return the sum of two numbers."""
-        +    return x + y
-        ```
-    '''
+diff --git a/main.py b/main.py
+--- a/main.py
++++ b/main.py
+@@ -1,2 +1,14 @@
+ def add_numbers(a, b):
+-    return a + b
++    """
++    add_numbers function
++
++    Adds two numbers and returns the result.
++
++    Parameters:
++        a (int or float): First number
++        b (int or float): Second number
++
++    Returns:
++        int or float: Sum of a and b
++    """
++    return a + b
+'''
     return patch
 
 

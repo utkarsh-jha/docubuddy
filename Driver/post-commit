@@ -1,2 +1,4 @@
-@echo off
-call "%~dp0docu-githook.bat"
+#!/bin/sh
+echo "Running post-commit hook..."
+echo "Full path: $(pwd)/.githooks/Driver/docu-githook.sh"
+sh ".githooks/Driver/docu-githook.sh"
