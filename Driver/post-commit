@@ -1,4 +1,4 @@
 #!/bin/sh
 echo "Running post-commit hook..."
-echo "Full path: $(pwd)/.githooks/Driver/docu-githook.sh"
-sh ".githooks/Driver/docu-githook.sh"
+echo "Full path: $(pwd)/.githooks/Driver/docupilot_githook.sh"
+sh ".githooks/Driver/docupilot_githook.sh"
