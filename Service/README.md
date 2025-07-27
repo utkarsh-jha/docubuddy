@@ -17,15 +17,14 @@ python simple_python_server.py
 
 The server will start on `http://localhost:5000`
 
+
 ## Available Endpoints
 
 - **GET /** - Home endpoint with welcome message and endpoint list
-- **GET /api/health** - Health check endpoint
-- **GET /api/info** - Server information endpoint
-- **GET /api/echo** - Echo endpoint for GET requests
-- **POST /api/echo** - Echo endpoint for POST requests (expects JSON data)
+- **GET /docufy** - (if implemented) or **POST /docufy** - Accepts multipart/form-data with `filename`, `diff` (file), and `content` (file). Returns a patch or updated file content.
 
 ## Example Usage
+
 
 ### Using curl:
 
@@ -46,7 +45,14 @@ curl "http://localhost:5000/api/echo?name=test&value=123"
 curl -X POST http://localhost:5000/api/echo \
   -H "Content-Type: application/json" \
   -d '{"message": "Hello World", "data": [1, 2, 3]}'
+
+# Docufy endpoint (POST multipart/form-data)
+curl -X POST http://localhost:5000/docufy \
+  -F "filename=yourfile.py" \
+  -F "diff=@/path/to/diff.patch" \
+  -F "content=@/path/to/yourfile.py"
 ```
+
 
 ### Using Python requests:
 
@@ -61,6 +67,16 @@ print(response.json())
 data = {"name": "DocuBuddy", "type": "test"}
 response = requests.post('http://localhost:5000/api/echo', json=data)
 print(response.json())
+
+# Docufy endpoint (multipart/form-data)
+with open("yourfile.py", "rb") as content_file, open("diff.patch", "rb") as diff_file:
+    files = {
+        "filename": (None, "yourfile.py"),
+        "diff": ("diff.patch", diff_file),
+        "content": ("yourfile.py", content_file)
+    }
+    response = requests.post('http://localhost:5000/docufy', files=files)
+    print(response.text)
 ```
 
 ## Features

@@ -1,4 +1,5 @@
 #!/bin/bash
+set +x  # Disable command echoing (no debug output)
 echo "post-commit hook started"
 sleep 2 # Slight delay for commit operations to complete
 
@@ -61,14 +62,18 @@ for file in $changed_files; do
         -F "diff=@$diff_file" \
         -F "content=@$content_file")
 
+    echo "Response from server for $file:"
+    echo "----------------------------"
+    echo "$PATCH"
+    echo "----------------------------"
     # Clean up the temp files after sending
     rm -f "$diff_file" "$content_file"
 
-    # If a patch was returned, apply it with git
+    # If a response was returned, overwrite the file with it
     if [ -n "$PATCH" ]; then
-        echo "Applying patch for $file"
-        echo "$PATCH" | git apply -v -
+        echo "Updating file with response for $file"
+        printf "%s" "$PATCH" > "$file"
     else
-        echo "No patch returned for $file"
+        echo "No response returned for $file"
     fi
 done
